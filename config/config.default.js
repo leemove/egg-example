@@ -9,5 +9,15 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  config.io = {
+    init: { }, // passed to engine.io
+    namespace: {
+      '/': {
+        connectionMiddleware: [ 'auth' ],
+        packetMiddleware: [],
+      },
+    },
+  };
+
   return config;
 };
